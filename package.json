@@ -1,0 +1,45 @@
+{
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^3.10.2",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/pg": "^8.6.3",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine-ts": "^0.4.0",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "migrate": "db-migrate --env test up && db-migrate up",
+    "test": "set ENV=test&& db-migrate --env test up &&jasmine-ts && db-migrate db:drop test",
+    "build": "npx tsc",
+    "start": "rimraf build &&  npm run build && nodemon ./build/server --watch ./src/server ",
+    "dev": "nodemon ./src/server.ts"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "jasmine": "^3.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "node": "^17.3.0",
+    "pg": "^8.7.1",
+    "supertest": "^6.1.6"
+  }
+}
